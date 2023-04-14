@@ -1,0 +1,273 @@
+:root {
+  --text-color: #fff;
+  --background-color: #ed8b9e;
+  --accent-color: #a1e1dc;
+  --icons-color: rgb(152, 187, 201);
+  --bodybackground-color: #a1e1dc;
+}
+
+body { 
+  margin: 0;
+  background-color: var(--bodybackground-color);
+  font-family: 'STIX Two Math';
+  background-image: url(/image/back-deco.png);
+
+  
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 16px 12px;
+  font-family: 'STIX Two Math';
+  font-weight: 600;
+  color: #fff;
+}
+.navbar__logo {
+    position: sticky;
+    margin-left: 2%;
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0%;
+  padding-left: 0;
+}
+
+.navbar__menu li {
+  padding: 12px 24px;
+}
+.navbar__menu li:hover {
+  background-color: #a1e1dc;
+  border-radius: 3px;
+}
+.navbar__icons {
+  list-style: none;
+  display: flex;
+  color: #fff;
+  padding-left: 0;
+}
+
+.navbar__icons li {
+  padding: 8px 12px;
+  margin: 0;
+}
+.navbar__toggleBtn {
+  display: none;
+  color: #fff;
+  position: absolute;
+  right: 30px;
+  font-size: 20px;
+}
+
+.btnLogin {
+    margin: 0;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #ed8b9e;
+  }
+/*768 이하로 줄어들면 내비바*/
+@media screen and (max-width: 789px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    height: 100%;
+  }
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar__menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar__icons {
+    justify-content: center;
+    width: 100%;
+  }
+  .navbar__toggleBtn {
+    display: block;
+  }
+}
+
+.navbar__menu.active,
+.navbar__icons.active {
+  display: flex;
+}
+
+  /*마이페이지*/
+  .mypage {
+    max-width: 800px auto;
+    height: 500px auto;
+    border: 4px solid white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 10px;
+    background-color: #8b98ac;
+}
+
+.mypage__left {
+    background-color: #ed8b9e;
+    width: 40%;
+    border-right: 4px solid white;
+}
+
+.mypage__profile {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mypage__profile > div {
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.mypage__profile img {
+    width: 150px;
+    height: 150px;
+}
+.mypage__profile > p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    
+}
+.profile-line {
+    width: 60%;
+    border: 2px solid #fff;
+}
+
+.mypage__list {
+    width: 90%;
+    height: 100%;
+}
+
+.mypage__list > ul {
+    width: 100% auto;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.mypage__list li {
+    margin-bottom: 10px;
+    text-align: center;
+    align-items: center;   
+    width: 100%; 
+}
+
+.mypage__list a {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.mypage__list a:hover {
+    color: #fff;
+    background-color: #8bd3cd;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+    flex-direction: column;
+    height: 100%;
+    border-radius: 8px;
+    padding: 0px;
+ 
+
+    /* font-size: 22px;
+    text-decoration: 3px underline white;  */
+}
+.mypage__right {
+    width: 100%;
+    height: 100%;
+}
+
+.mypage__select {
+    width: 100%;
+    height: 20%;
+    border-bottom: 4px solid white;
+    padding-left: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.mypage__detail {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 150px;
+}
+
+.mypage__detail > span {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.mypage__update {
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    background-color: #84d3ce;
+    text-align: center;
+    margin: auto;
+}
+
+.mypage__update > a {
+    color: black;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 786px) {
+    .mypage {
+      flex-direction: column;
+    }
+    
+    .mypage__left {
+      width: 100%;
+      border-right: none;
+      height: ;
+    }
+    
+    .mypage__profile {
+      border-bottom: none;
+    }
+    .mypage__list li {
+        margin-bottom: 8px;
+        text-align: center;
+        align-items: center;    
+        
+    }
+  }
