@@ -10,11 +10,11 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
  		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:postgresql://localhost:5432/test"></property> 
+		<property name="jdbcUrl" value="jdbc:log4jdbc:postgresql://localhost:5432/withd"></property> 
          <!-- Oracle 11g 경우 value="jdbc:oracle:thin:@URL주소:1521:XE" -->
          <!-- Oracle 19  경우 value="jdbc:oracle:thin:@URL주소:1521:orcl" -->
 		<property name="username" value="postgres"></property>
-		<property name="password" value="0629"></property>
+		<property name="password" value="0000"></property>
 	</bean>	
 	
 	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

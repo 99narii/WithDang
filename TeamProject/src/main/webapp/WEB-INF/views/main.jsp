@@ -7,6 +7,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/style.css">
@@ -84,7 +85,7 @@
     <article class="main-about">
         <div class="main-btn" width="80%" height="auto">
             <button type="button" id="main-btn" name="petsitter"><a href="dangguen.jsp">댕근마켓 바로가기▶</a></button>
-            <button type="button" id="main-btn" name="pet"><a href="dangcare.jsp">댕댕케어 바로가기▶</a></button>
+            <button type="button" id="main-btn-" name="pet"><a href="dangcare.jsp">댕댕케어 바로가기▶</a></button>
         </div>
         <br>
     </article>
