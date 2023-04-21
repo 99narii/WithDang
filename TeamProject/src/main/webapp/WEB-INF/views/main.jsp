@@ -31,11 +31,11 @@
             </div>
 
             <ul class="navbar__menu">
-                <li><a href="main.jsp">댕댕여지도</a></li>
-                <li><a href="dangguen.jsp">댕근마켓</a></li>
-                <li><a href="dangcare.jsp">댕댕케어</a></li>
-                <li><a href="dangcomu.jsp">댕댕커뮤</a></li>
-                <li><a href="dangoffice.jsp">댕사무소</a></li>
+                <li><a href="/main">댕댕여지도</a></li>
+                <li><a href="/dangguen">댕근마켓</a></li>
+                <li><a href="/dangcare">댕댕케어</a></li>
+                <li><a href="/dangcomu">댕댕커뮤</a></li>
+                <li><a href="/dangoffice">댕사무소</a></li>
                 <c:if test="${ member != null }">
                 	<li><a href="mypage.jsp"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
                 </c:if>
