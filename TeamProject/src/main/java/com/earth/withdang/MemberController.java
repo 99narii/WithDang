@@ -30,11 +30,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 	
-	@RequestMapping(value = "/" , method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/main"} , method = RequestMethod.GET)
 	public String mainPageGET() {
-		
 		return "/main";
-		
 	}
 	
 //	@RequestMapping(value="join" ,method = RequestMethod.GET)

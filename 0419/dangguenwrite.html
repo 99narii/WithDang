@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dangguenwrite.css">
     <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
+    <script src="./script/dangguenwrite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
@@ -50,18 +51,15 @@
             <div class="board_write">
                 <div class="title">
                     <dl>
-
-                        <dd>제목 <input type="text" placeholder="제목 입력"></dd>
+                        <dd><input type="text" placeholder="제목 입력"></dd>
                     </dl>
                 </div>
                 <section class="dangguen-sec">
                     <div class="info">
                         <dl>
-                            <dd>가격 <input type="text" placeholder="판매 가격"> 원</dd>
+                            <p>가격<dd><input type="text" placeholder="판매 가격"> 원</dd></p>
                         </dl>
                         <div id="dangguen-img">
-                            <input id="imageinput" type="file" accept=".jpg, .jpeg, .png" onchange="previewImage(this)" required>
-                            <img id="preview" />
                             <select class="form-select" aria-label="category">
                                 <optgroup label="카테고리">
                                     <option selected>카테고리</option>
@@ -96,7 +94,11 @@
                                     <option value="17">경상남도</option>
                                 </optgroup>
                             </select>
+                            <input id="imageinput" type="file" multiple="multiple" accept=".jpg, .jpeg, .png" onchange="previewImage(this)" required>
+                            <img id="preview" />
+
                         </div>
+
                     </div>
                     <div class="cont">
                        
@@ -109,6 +111,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 
