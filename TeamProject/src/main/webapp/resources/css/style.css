@@ -155,7 +155,7 @@ a {
     transform: scale(1.0); /* 이미지 확대 */
     transition: transform .5s; /* 시간 설정 */
   }
-  
+
   .main-pin > a > img:hover {
     transform: scale(1.5);   /* 이미지 확대 */
     transition: transform .5s;  /* 시간 설정 */

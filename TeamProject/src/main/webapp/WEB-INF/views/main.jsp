@@ -11,10 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/style.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eb28aa20d7222d5529f51952b8be3c3"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eb28aa20d7222d5529f51952b8be3c3&libraries=services"></script>
     <script src="https://kit.fontawesome.com/kit_code.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
-    <script src="resources/js/main.js" defer></script>
+    <script src="resources/js/main2.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
@@ -55,26 +55,13 @@
             <p class="main-title"> 댕댕여지도</p>
 
             <div id="map" class="map" style="width: auto; height: 500px;z-index: 1"></div>
-
-
-
             <div class="main-side">
                 <div class="main-pin">
-                    <a href="#"><img src="resources/image/pin1.png" alt="핀1"></a>
-                </div>
-                <div class="main-pin">
+                    <a href="#" onclick="pin1()"><img src="resources/image/pin1.png" alt="핀1"></a>
                     <a href="#"><img src="resources/image/pin2.png" alt="핀2"></a>
-                </div>
-                <div class="main-pin">
                     <a href="#"><img src="resources/image/pin3.png" alt="핀3"></a>
-                </div>
-                <div class="main-pin">
                     <a href="#"><img src="resources/image/pin4.png" alt="핀4"></a>
-                </div>
-                <div class="main-pin">
                     <a href="#"><img src="resources/image/pin5.png" alt="핀5"></a>
-                </div>
-                <div class="main-pin">
                     <a href="#"><img src="resources/image/pin6.png" alt="핀6"></a>
                 </div>
             </div>
