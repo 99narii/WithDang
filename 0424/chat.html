@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/chat.css">
+    <script src="./script/server.js"></script>
+    <script src="./script/toggle.js"></script>
+    <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --text-color: #fff;
+            --background-color: #ed8b9e;
+            --accent-color: #a1e1dc;
+            --icons-color: rgb(152, 187, 201);
+            --bodybackground-color: #a1e1dc;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bodybackground-color);
+            font-family: 'STIX Two Math';
+            background-image: url(/image/back-deco.png);
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--background-color);
+            padding: 16px 12px;
+            font-family: 'STIX Two Math';
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .navbar__logo {
+            position: sticky;
+            margin-left: 2%;
+        }
+
+        .navbar__menu {
+            list-style: none;
+            display: flex;
+            margin: 0%;
+            padding-left: 0;
+        }
+
+        .navbar__menu li {
+            padding: 12px 24px;
+        }
+
+        .navbar__menu li:hover {
+            background-color: #a1e1dc;
+            border-radius: 3px;
+        }
+
+        .navbar__icons {
+            list-style: none;
+            display: flex;
+            color: #fff;
+            padding-left: 0;
+        }
+
+        .navbar__icons li {
+            padding: 8px 12px;
+            margin: 0;
+        }
+
+        .navbar__toggleBtn {
+            display: none;
+            color: #fff;
+            position: absolute;
+            right: 30px;
+            font-size: 20px;
+        }
+
+        .btnLogin {
+            margin: 0;
+            color: #fff;
+            border: 1px solid #fff;
+            background-color: #ed8b9e;
+        }
+
+        /*768 이하로 줄어들면 내비바*/
+        @media screen and (max-width: 789px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 30px;
+                height: 100%;
+            }
+
+            .navbar__menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .navbar__menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar__icons {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .navbar__toggleBtn {
+                display: block;
+            }
+        }
+
+        .navbar__menu.active,
+        .navbar__icons.active {
+            display: flex;
+        }
+
+        #container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #e9b7b7;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 채팅창 스타일 */
+        #chatView {
+            height: 300px;
+            padding: 10px;
+            background-color: #c2e5e4;
+            overflow-y: scroll;
+            border: 1px solid #EAEAEA;
+            border-radius: 5px;
+            font-size: 14px;
+
+        }
+
+        /* 발신자 및 메시지 스타일 */
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .sender {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .text {
+            margin: 0;
+            background-color: #F4F4F4;
+            padding: 8px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            max-width: 200px;
+        }
+
+        /* 메시지 입력창 스타일 */
+        #chatForm {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        /* 메시지 입력창 텍스트 입력 필드 스타일 */
+        #msg {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* 메시지 입력창 전송 버튼 스타일 */
+        #send {
+            padding: 8px 16px;
+            margin-left: 10px;
+            background-color: #ed8b9e;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 메시지 입력창 전송 버튼 호버 스타일 */
+        #send:hover {
+            background-color: #e0657e;
+        }
+    </style>
+
+    <title>채팅</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+
+            <div class="navbar__logo">
+                <a href="main.html">with DANG</a>
+            </div>
+
+            <ul class="navbar__menu">
+                <li><a href="main.html">댕댕여지도</a></li>
+                <li><a href="dangguen.html">댕근마켓</a></li>
+                <li><a href="dangcare.html">댕댕케어</a></li>
+                <li><a href="dangcomu.html">댕댕커뮤</a></li>
+                <li><a href="dangoffice.html">댕사무소</a></li>
+                <li><button class="btnLogin"><a href="login.html">login</a></button></li>
+                <li><a href="mypage.html"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
+
+            </ul>
+            <a href="#" class="navbar__toggleBtn">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </a>
+        </nav>
+    </header>
+    <p></p>
+
+    <div id="container">
+        <div id="chatView">
+            <!-- 발신자 및 메시지 예시 -->
+            <div class="message">
+                <div class="sender">발신자1</div>
+                <div class="text">대화를 시작해보세요!</div>
+            </div>
+        </div>
+        <form id="chatForm" onsubmit="return false">
+            <input type="text" id="msg">
+            <input type="submit" id="send" value="전송">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+
+        var chatView = document.getElementById('chatView');
+        var chatForm = document.getElementById('chatForm');
+
+        chatForm.addEventListener('submit', function () {
+            var msg = $('#msg');
+
+            if (msg.val() == '') {
+                return;
+
+            } else {
+                socket.emit('SEND', msg.val());
+
+                var msgLine = $('<div class="msgLine">');
+                var msgBox = $('<div class="msgBox">');
+
+                msgBox.append(msg.val());
+                msgBox.css('display', 'inline-block');
+
+                msgLine.css('text-align', 'right');
+                msgLine.append(msgBox);
+
+                $('#chatView').append(msgLine);
+
+                msg.val('');
+                chatView.scrollTop = chatView.scrollHeight;
+            }
+        });
+
+        socket.on('SEND', function (msg) {
+            var msgLine = $('<div class="msgLine">');
+            var msgBox = $('<div class="msgBox">');
+
+            msgBox.append(msg);
+            msgBox.css('display', 'inline-block');
+
+            msgLine.append(msgBox);
+            $('#chatView').append(msgLine);
+
+            chatView.scrollTop = chatView.scrollHeight;
+        });
+    </script>
+    <script>
+        const toggleBtn = document.querySelector('.navbar__toggleBtn');
+        const menu = document.querySelector('.navbar__menu');
+        const icons = document.querySelector('.navbar__icons');
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active')
+            icons.classList.toggle('active')
+        })
+
+
+    </script>
+
+</body>
+
+</html>
