@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration xmlns="http://mybatis.org/schema/mybatis-config">
+    <typeAliases>
+        <typeAlias type="com.earth.model.MapVo" alias="MapVo"/>
+        <typeAlias type="com.earth.model.MemberVo" alias="MemberVo"/>
+    </typeAliases>
+</configuration>

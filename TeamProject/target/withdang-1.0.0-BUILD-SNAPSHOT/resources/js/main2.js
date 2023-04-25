@@ -42,6 +42,10 @@ function locationLoadSuccess(pos) {
         radius: 1000,
         size: 5
     };
+
+
+    //  검색결과가 안좋음.  db에 리스트 만들어서 불러오기
+
     ps.keywordSearch('운동장', placesSearchCB, searchOption);
 
 

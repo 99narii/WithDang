@@ -1,8 +1,10 @@
 package com.earth.mapper;
 
 import com.earth.model.MemberVo;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
-
+@Mapper
 public interface MemberMapper {
 
 	public void memberJoin(MemberVo member);

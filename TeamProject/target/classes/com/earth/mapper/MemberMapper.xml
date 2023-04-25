@@ -16,7 +16,7 @@
   	
   		</select>
   		
-  		<select id="memberLogin" resultType="com.earth.model.MemberVo">
+  		<select id="memberLogin" resultType="MemberVo">
   			select user_email, user_pw, user_name  
   			from tb_user1 
   			where user_email = #{user_email} and user_pw = #{user_pw}
