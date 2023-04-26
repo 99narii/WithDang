@@ -1,0 +1,284 @@
+:root {
+  --text-color: #fff;
+  --background-color: #ed8b9e;
+  --accent-color: #a1e1dc;
+  --icons-color: rgb(152, 187, 201);
+  --bodybackground-color: #a1e1dc;
+}
+
+body { 
+  margin: 0;
+  background-color: var(--bodybackground-color);
+  font-family: 'STIX Two Math';
+  background-image: url(/image/back-deco.png);
+
+  
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 16px 12px;
+  font-family: 'STIX Two Math';
+  font-weight: 600;
+  color: #fff;
+}
+.navbar__logo {
+    position: sticky;
+    margin-left: 2%;
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0%;
+  padding-left: 0;
+}
+
+.navbar__menu li {
+  padding: 12px 24px;
+}
+.navbar__menu li:hover {
+  background-color: #a1e1dc;
+  border-radius: 3px;
+}
+.navbar__icons {
+  list-style: none;
+  display: flex;
+  color: #fff;
+  padding-left: 0;
+}
+
+.navbar__icons li {
+  padding: 8px 12px;
+  margin: 0;
+}
+.navbar__toggleBtn {
+  display: none;
+  color: #fff;
+  position: absolute;
+  right: 30px;
+  font-size: 20px;
+}
+
+.btnLogin {
+    margin: 0;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #ed8b9e;
+  }
+/*768 이하로 줄어들면 내비바*/
+@media screen and (max-width: 789px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    height: 100%;
+  }
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar__menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar__icons {
+    justify-content: center;
+    width: 100%;
+  }
+  .navbar__toggleBtn {
+    display: block;
+  }
+}
+
+.navbar__menu.active,
+.navbar__icons.active {
+  display: flex;
+}
+
+.care-title {
+  position: absolute;
+  top: 10%;
+}
+
+  #main {
+    text-align: center;
+  
+  }
+  .main-map {
+    width: 400px auto;
+    height: 600px auto;
+    border: 2px solid #fff;
+    background-color: #ffffff39;
+  }
+  
+  /*댕댕케어 슬라이드*/
+
+  
+  .care-img {
+    display: block;
+    margin: auto;
+    top: 30%;
+  }
+  .petbtn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*댕댕케어 버튼*/
+  #petbtn {
+    color: #fff ;
+    border: none ;
+    background-color: #ed8b9e;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    position: static;
+    top: 20%;
+    padding: 10px;
+    margin: 25px;
+    border-radius: 15px;
+  }
+
+  @media screen and (max-width: 789px) {
+    #petbtn {
+      margin: 5px;
+      font-size: 14px;
+      width: 34%;
+
+    }
+  }
+
+  #petbtn:hover {
+    background-color: #db6e84;
+  }
+
+  .form-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    margin: 5%;
+    color: #333;
+}
+
+/* 폼 내부 스타일 */
+#form-pet {
+    width: 50%;
+    padding: 3rem 6rem;
+    border: 2px solid #fff;
+    border-radius: 1rem;
+}
+
+/* 필수정보 타이틀 스타일 */
+#user-form > p:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 600;
+    margin-bottom: 1.5rem;
+}
+.cureer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 600;
+    margin-bottom: 1.5rem;
+
+}
+
+/* 라디오 버튼, 체크박스 스타일 */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* 지원하기 버튼 스타일 */
+.sumit-btn {
+    display: block;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background-color: #ed8b9e;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    width: 300px auto;
+}
+
+/* 라디오 버튼 */
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #ed8b9e;
+    outline: none;
+    margin-right: 1rem;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: #ed8b9e;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.2rem;
+    border: 2px solid #ed8b9e;
+    outline: none;
+    margin-right: 1rem;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "\2713";
+    font-size: 1.2rem;
+    color: #ed8b9e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input[type="text"] {
+    border: none;
+    width: 260px ;
+    height: 40px;
+    background-color: #e0f5f3 ;
+    
+}
+.textarea-form {
+    border: none;
+    background-color: #e0f5f3 ;
+
+}
+
