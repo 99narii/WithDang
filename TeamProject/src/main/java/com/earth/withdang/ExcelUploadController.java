@@ -1,7 +1,6 @@
-package com.earth.excel;
+package com.earth.withdang;
 
 import com.earth.excel.service.ExcelUpload;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +14,12 @@ import java.io.File;
 import java.io.IOException;
 
 @Controller
+@RequestMapping("/excel")
 public class ExcelUploadController {
     @Autowired
     ExcelUpload excelUpload;
 
-    @RequestMapping(value = "/excel/upload")
+    @RequestMapping(value = "/upload" ,method = RequestMethod.GET)
     public String excelUp() {
         return "upload";
     }

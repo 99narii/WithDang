@@ -1,7 +1,69 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<configuration xmlns="http://mybatis.org/schema/mybatis-config">
-    <typeAliases>
-        <typeAlias type="com.earth.model.MapVo" alias="MapVo"/>
-        <typeAlias type="com.earth.model.MemberVo" alias="MemberVo"/>
-    </typeAliases>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- preferences에서 미리 dtd를 등록해두고 생성함 -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!--
+	안에 순서를 지켜서 작성해야 함
+	- The content of element type "configuration" must match
+	 "(properties?,settings?,typeAliases?,typeHandlers?,
+	 	objectFactory?,objectWrapperFactory?,reflectorFactory?,
+	 	plugins?,environments?,databaseIdProvider?,mappers?)".
+ -->
+<!-- 연결정보 따로 생성 후 불러오기 -->
+<!--<properties resource="/driver.properties"></properties>-->
+
+<!-- 마이바티스 설정과 관련된 기본 세팅 선언 -->
+<!--<settings>-->
+<!--    <setting name="jdbcTypeForNull" value="NULL"/>-->
+<!--    &lt;!&ndash; 데이터가 null로 전달이 되었으면 빈칸으로 인지말고 null로 인식해라(value에 들어가는 NULL은 무조건 대문자로 기입) &ndash;&gt;-->
+<!--</settings>-->
+
+<!-- (별칭 설정) -->
+<typeAliases>
+    <typeAlias type="com.earth.model.MapVo" alias="MapVo"/>
+    <typeAlias type="com.earth.model.MemberVo" alias="MemberVo"/>
+</typeAliases>
+
+<!-- environments : DB에 연결할 설정에 대한 정보 선언 -->
+<!--<environments default="development">-->
+    <!-- default : 연결 설정을 여러 개 생성하여 아이디로 구분하고 기본으로 연결할 설정 정보를 설정하는 속성 -->
+
+    <!-- Database연결할 설정 정보 선언 => environment에 대한 이름을 development라고 부를게! -->
+<!--    <environment id="development">-->
+
+        <!-- 트랜잭션을 제어를 누가 할 것인가에 대한 설정  -->
+        <!--
+            JDBC	: JDBC가 커밋/롤백을 직접 처리하기 위해 사용(수동 commit)
+            MANAGED : 트랜잭션에 대해 직접적인 영향을 행사하지 않는 것 의미(자동 commit)
+         -->
+<!--        <transactionManager type="JDBC"/>-->
+
+        <!-- 실제 DB접속에 관한 정보를 넣는 태그 -->
+        <!--
+            type : ConnectionPool을 사용할건지에 대한 여부
+                UNPOOLED
+                POOLED
+                JNDI
+         -->
+<!--        <dataSource type="POOLED">-->
+            <!-- 연결정보 직접 입력한 경우 -->
+            <!-- 			<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                             <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+                             <property name="username" value="MYBATIS"/>
+                             <property name="password" value="MYBATIS"/> -->
+            <!-- driver.properties에 등록된 파일을 가져오는 경우 -->
+<!--            <property name="driver" value="${driver}"/> &lt;!&ndash; el아님, 띄어쓰기x &ndash;&gt;-->
+<!--            <property name="url" value="${url}"/>-->
+<!--            <property name="username" value="${username}"/>-->
+<!--            <property name="password" value="${password}"/>-->
+<!--        </dataSource>-->
+<!--    </environment>-->
+<!--</environments>-->
+
+<!-- DB에 사용되는 쿼리문들을 담은 mapper파일을 등록하는 부분 -->
+<!--<mappers>-->
+<!--    <mapper resource="mappers/member-mapper.xml"/>-->
+<!--    <mapper resource="mappers/board-mapper.xml"/>-->
+<!--</mappers>-->
 </configuration>
+

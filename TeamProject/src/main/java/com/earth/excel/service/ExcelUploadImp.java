@@ -27,19 +27,21 @@ public class ExcelUploadImp implements ExcelUpload {
 
         ExcelReadOption readOption = new ExcelReadOption();
         readOption.setFilePath(destFile.getAbsolutePath());
-        List<String> list = Arrays.asList("name", "latitude","longitude","type");
+        List<String> list = Arrays.asList("A", "B","C","D");
         readOption.setOutputColumns(list);
-        readOption.setStartRow(0);
+        readOption.setStartRow(1);
 
         List<Map<String, String>> excelContent = ExcelRead.read(readOption);
         List<MapVo> pinList = new ArrayList<>();
 
         for (Map<String, String> map : excelContent) {
             MapVo pin = new MapVo();
-            pin.setName(map.get("name").toString());
-            pin.setLatitude(Double.parseDouble(map.get("latitude")));
-            pin.setLongitude(Double.parseDouble(map.get("longitude")));
-            pin.setType(map.get("type"));
+            //여기서 널에러
+            //excelContent가 비어있음
+            pin.setName(map.get("A").toString());
+            pin.setLatitude(Double.parseDouble(map.get("B")));
+            pin.setLongitude(Double.parseDouble(map.get("C")));
+            pin.setType(map.get("D"));
             pinList.add(pin);
         }
         for (MapVo mapVo : pinList) {

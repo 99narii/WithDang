@@ -46,9 +46,10 @@ public class ExcelRead {
                     cell = row.getCell(cellIndex);
                     cellName = ExcelCellRef.getName(cell, cellIndex);
                     //추출대상 컬럼 확인
-                    if (!excelReadOption.getOutputColumns().contains(cellName)) {
-                        continue;
-                    }
+                    //여기서 다 걸러짐
+//                    if (!excelReadOption.getOutputColumns().contains(cellName)) {
+//                        continue;
+//                    }
                     map.put(cellName, ExcelCellRef.getValue(cell));
                 }
                 result.add(map);
