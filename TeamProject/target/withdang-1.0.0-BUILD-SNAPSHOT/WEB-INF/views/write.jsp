@@ -1,9 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="loginout" value="${member==null ? 'Login' : 'Logout' }" />
+<c:set var="loginoutlink" value="${member==null ? '/login' : '/logout' }" />
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../resources/image/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/comu.css">
@@ -29,13 +34,16 @@
             </div>
 
             <ul class="navbar__menu">
-                <li><a href="main.html">댕댕여지도</a></li>
-                <li><a href="dangguen.html">댕근마켓</a></li>
-                <li><a href="dangcare.html">댕댕케어</a></li>
-                <li><a href="dangcomu.html">댕댕커뮤</a></li>
-                <li><a href="dangoffice.html">댕사무소</a></li>
-                <li><button class="btnLogin"><a href="login.html">login</a></button></li>
-                <li><a href="mypage.html"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
+                <li><a href="<c:url value="/main"/>">댕댕여지도</a></li>
+                <li><a href="<c:url value="/dangguen"/>">댕근마켓</a></li>
+                <li><a href="<c:url value="/dangcare"/>">댕댕케어</a></li>
+                <li><a href="<c:url value="/dangcomu"/>">댕댕커뮤</a></li>
+                <li><a href="<c:url value="/dangoffice"/>">댕사무소</a></li>
+                <c:if test="${ member != null }">
+                    <li><a href="<c:url value="/mypage"/>"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
+                </c:if>
+                <li><button class="btnLogin"><a href="<c:url value='${loginoutlink }' />">${loginout}</a></button></li>
+
 
             </ul>
             <a href="#" class="navbar__toggleBtn">
