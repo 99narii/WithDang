@@ -1,18 +1,26 @@
 package com.earth.withdang;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @RequestMapping("/dangguen")
-    public String test() {
+    @GetMapping("/dangguen")
+    public String dangguen() {
         return "dangguen";
     }
-
-    @RequestMapping("/dangcare")
-    public String test2() {
+ @GetMapping("/dangcare")
+    public String dangcare() {
         return "dangcare";
     }
+@GetMapping("/dangcomu")
+    public String dangcomu() {
+        return "dangcomu";
+    }
+@GetMapping("/dangoffice")
+    public String dangoffice() {
+        return "dangoffice";
+    }
+
 
 }
