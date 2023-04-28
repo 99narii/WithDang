@@ -13,7 +13,9 @@ toggleBtn.addEventListener('click', () => {
 /*지도*/
 
 navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
-
+function pin1() {
+    var positions=[]
+}
 
 
 function locationLoadSuccess(pos) {

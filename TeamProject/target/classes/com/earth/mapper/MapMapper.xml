@@ -6,6 +6,10 @@
 		<insert id="insertPin" parameterType="MapVo">
 			insert into mapPin1 (name,latitude,longitude,pinType) values(#{name},#{latitude},#{longitude},#{type})
 		</insert>
+<!--	a1 불러오기-->
+	<select id="selectPin" parameterType="String" resultType="hashMap">
+			select * from mapPin1 where pintype=${value}
+	</select>
 </mapper>
 
 
