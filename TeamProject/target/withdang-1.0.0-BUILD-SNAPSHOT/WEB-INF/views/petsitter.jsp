@@ -5,30 +5,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../../resources/image/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/care.css">
+    <script src="./script/toggle.js" defer></script>
+    <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+
+
+
     <title>펫시터 지원하기</title>
 </head>
 
 <body>
     <header>
-
         <nav class="navbar">
 
             <div class="navbar__logo">
-                <a href="">with DANG</a>
+                <a href="main.jsp">with DANG</a>
             </div>
 
             <ul class="navbar__menu">
-                <li><a href="main.html">댕댕여지도</a></li>
+                <li><a href="main.jsp">댕댕여지도</a></li>
                 <li><a href="dangguen.html">댕근마켓</a></li>
                 <li><a href="dangcare.html">댕댕케어</a></li>
                 <li><a href="dangcomu.html">댕댕커뮤</a></li>
-                <li><a href="dangoffice.html">댕사무소</a></li>
-                <li><button class="btnLogin"><a href="login.html">login</a></button></li>
-                <li><a href="mypage.html"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
+                <li><a href="dangoffice.jsp">댕사무소</a></li>
+                <li><button class="btnLogin"><a href="login.jsp">login</a></button></li>
+                <li><a href="mypage.html"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
 
             </ul>
             <a href="#" class="navbar__toggleBtn">
@@ -46,45 +52,54 @@
                 <p name="user-name">●이름
                 <p></p><input type="text" class="input-form" placeholder="실명 입력"></p>
                 <p name="user-birth">●생일
-                <p></p><input type="text" class="input-form" placeholder="생년월일 8자리로 입력">
-                <fieldset calss="input-box">
-                    <label>
-                        <input type="radio" name="user-gender" value="man">남
-                        <input type="radio" name="user-gender" value="woman">여</p>
-                    </label>
-                </fieldset>
+                <p></p><input type="number" class="input-form" placeholder="생년월일 8자리로 입력">
+                <p>
+                    <input type="radio" name="user-gender" value="man">남
+                    <input type="radio" name="user-gender" value="woman">여</p>
+                </p>
 
                 <p name="user-phone">●연락처
-                <p></p><input type="text" class="input-form" placeholder="숫자로 입력"></p>
+                <p></p><input type="tel" class="input-form" placeholder="숫자로 입력"></p>
                 <p name="user-phone">●거주지 주소
                 <p></p><input type="text" class="input-form" placeholder="시/군/구까지 입력"></p>
                 <p>●거주지 유형</p>
                 
-                        <input type="radio" name="user-residence" value="">20평 이하
-                        <input type="radio" name="user-residence" value="">20평 이상
-                        <input type="radio" name="user-residence" value="">마당 있음
-            
-                <p>●본인 포함 가족구성원 흡연 여부</p>
-                <input type="radio" name="user-residence" value="">예
-                <input type="radio" name="user-residence" value="">아니오
+                    <input type="radio" name="user-residence" value="S">20평 이하
+                    <input type="radio" name="user-residence" value="M">20평 이상
+                    <input type="radio" name="user-residence" value="L">마당 있음
+                
+                <p>●본인/가족구성원 흡연 여부</p>
+
+                <input type="radio" name="user-smoke" value="smoker">예
+                <input type="radio" name="user-smoke" value="non-smoker">아니오
+                </label>
                 <br>
                 <hr> <br>
                 <p class="cureer">2. 반려동물 경험 및 경력</p>
                 <p></p>
                 <p>●현재 반려동물이 있습니까?</p>
-                <input type="radio" name="user-residence" value="">있음
-                <input type="radio" name="user-residence" value="">없음
+                <label>
+                    <input type="radio" name="user-dogperson" value="Y">있음
+                    <input type="radio" name="user-dogperson" value="N">없음
+                </label>
                 <p>●강아지 반려 경험 유무</p>
-                <input type="radio" name="user-residence" value="">있음
-                <input type="radio" name="user-residence" value="">없음
+                <label>
+                    <input type="radio" name="user-doglife" value="Y">있음
+                    <input type="radio" name="user-doglife" value="N">없음
+                </label>
                 <p>●기타 반려 경험 유무(상세히 적어주세요.)</p>
                 <textarea style="width:80%; height:100px" class="textarea-form"></textarea>
 
             </section>
-            <button class="sumit-btn">지원하기</button>
+            <button class="sumit-btn" onclick="showAlert()" ><a href="dangcare.html">제출하기</a></button>
 
         </form>
     </div>
+    <script>
+		function showAlert() {
+			alert("제출이 완료되었습니다.!");
+		}
+	</script>
 
 
 </body>

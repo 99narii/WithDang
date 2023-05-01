@@ -2,21 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.earth.mapper.MemberMapper">
-		<insert id="memberJoin">
+  <mapper namespace="com.earth.mapper.UserMapper">
+		<insert id="userJoin">
 			insert into tb_user1 values(#{user_name},#{user_email},#{user_pw})
 		</insert>
 		
 		<!-- 아이디 중복검사 -->
   		<select id="emailCheck" resultType="int">
-  	
+
   		select count(*) 
   		from tb_user1 
   		where user_email = #{user_email}
   	
   		</select>
   		
-  		<select id="memberLogin" resultType="MemberVo">
+  		<select id="userLogin" resultType="userVo">
   			select user_email, user_pw, user_name  
   			from tb_user1 
   			where user_email = #{user_email} and user_pw = #{user_pw}

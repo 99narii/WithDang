@@ -108,23 +108,135 @@ a {
 }
 
   /*채팅*/
-
-  .chat-wrapper {
-    width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 80vh;
-  }
 .chat-container {
     width: 100%;
     height: 100%;
     border: none;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
   }
   
+
+/* ---------------------------------------------------------------------------------- */
+/* 채팅 목록 추가 */
+/* ---------------------------------------------------------------------------------- */
+.chat-list {
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+}
+
+.chat-listheader {
+  background-color: #ed8b9e;
+  width: 100%;
+  height: 41px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+  display: flex;
+}
+
+.chat-listheader > div {
+  width: 30px;
+  height: 100%;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.chat-listheader input {
+  width: 100px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.chat-listheader button {
+  background-color: #ed8b9e;
+  border: none;
+  position: relative;
+  top: 7px;
+}
+
+.chat-listbody {
+  width: 100%;
+  flex-grow: 1;
+}
+.chat-detail {
+  background-color: rgb(240, 235, 217);
+  width: 100%;
+  height: 20%;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+  display: flex;
+  align-items: center;
+}
+
+.chat-detail:last-child {
+  border: none;
+}
+
+.chat-leftprofile {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(128, 128, 128, 0.478);
+  border-radius: 50%;
+  margin-left: 25px;
+}
+
+.chat-rightprofile {
+  flex-grow: 1;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.chat-userid {
+  flex-basis: 30%;
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.chat-lastchat {
+  flex-grow: 1;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.chat-listfooter {
+  height: 59px;
+  background-color: white;
+}
+
+.chat-listfooter > img {
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 786px) {
+  .chat-wrapper {
+    flex-direction: column;
+  }
+
+  
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+/* 여기까지 */
+/* ---------------------------------------------------------------------------------- */
+
+  .chat-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 600px;
+  }
+
   .chat-header {
     background-color: #ed8b9e;
     padding: 10px;

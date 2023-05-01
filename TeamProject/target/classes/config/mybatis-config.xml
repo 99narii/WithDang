@@ -21,7 +21,7 @@
 <!-- (별칭 설정) -->
 <typeAliases>
     <typeAlias type="com.earth.model.MapVo" alias="MapVo"/>
-    <typeAlias type="com.earth.model.MemberVo" alias="MemberVo"/>
+    <typeAlias type="com.earth.model.UserVo" alias="UserVo"/>
 </typeAliases>
 
 <!-- environments : DB에 연결할 설정에 대한 정보 선언 -->

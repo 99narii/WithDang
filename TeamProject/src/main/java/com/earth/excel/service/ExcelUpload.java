@@ -6,4 +6,6 @@ public interface ExcelUpload {
     void excelUpload(File destfile);
 
     public void insertDB(File destFile);
+
+    public void truncate();
 }

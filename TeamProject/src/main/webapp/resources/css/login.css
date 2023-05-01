@@ -106,12 +106,12 @@ a {
 
 .form-box.active .signinform {
     left: -100%;
-    transition-delay: 0;
+    transition-delay: 0ms;
 }
 
 .signupform {
     left: 100%;
-    transition-delay: 0;
+    transition-delay: 0ms;
 }
 
 .form-box.active .signupform {
@@ -126,20 +126,49 @@ a {
 }
 
 .form form input {
-    border: 1px solid #999;
+    border: 0px solid #999;
+    background-color: #aed6d3be;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     outline: none;
+}
+.user-pet {
+    font-size: 12px;
+    
+    
+}
+[type="radio"] {
+    /* vertical-align: middle; */
+    /* appearance: none; */
+    border: none;
+    border-radius: 20%;
+    width: 12px;
+    height: 12px;
+    background-color: tomato;
+    
+}
+[type="radio"]:checked {
+    border: 0.2em solid tomato;
+  }
+register-check {
+
+}
+#register-policy {
+    font-size: 10px;
+    padding: ;
+}
+#register-check {
+    border: 1px solid tomato;
 }
 
 .form form h3 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 500;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form form input[type="submit"] {
+.form form input[type="button"] {
     max-width: 100px;
     background: #ed8b9e;
     color: #fff;
@@ -149,7 +178,6 @@ a {
 
 .form form input[value="Sign Up"] {
     max-width: 100px;
-    background: #03a9f4;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -165,13 +193,94 @@ a {
     .container {
         transform: scale(1);
     }
+    .form {
+        position: absolute;
+        width: 100%;
+        padding: 20px;
+        transition: 0.5s;
+    }
+    
 }
 
 .return-main {
     position: absolute;
     text-align: center;
-    top: 83%;
-    left: 56%;
-    font-size: 16px;
+    top: 80%;
+    left: 70%;
+    font-size: 20px;
 
+}
+
+/* 중복이메일 존재하지 않는경우 */
+.user_email_re_1{
+    color : green;
+    display : none;
+    font-size: x-small;
+    position: absolute;
+    top: 205px;
+    right: 50px;
+
+}
+/* 중복이메일 존재하는 경우 */
+.user_email_re_2{
+    color : red;
+    display : none;
+    font-size: x-small;
+    position: absolute;
+    top: 205px;
+    right: 50px;
+}
+
+/* 유효성 검사 문구 */
+
+.final_name_ck{
+    position: absolute;
+    display: none;
+    font-size: x-small;
+    top: 145px;
+}
+.final_email_ck{
+    position: absolute;
+    display: none;
+    font-size: x-small;
+    top: 205px;
+}
+.final_pwck_ck{
+    position: absolute;
+    display: none;
+    font-size: x-small;
+    top: 325px;
+}
+.final_pw_ck{
+    position: absolute;
+    display: none;
+    font-size: x-small;
+    top: 265px;
+}
+
+/* 비밀번호 확인 일치 유효성검사 */
+.pwck_input_re_1{
+    color : green;
+    display : none;
+    position: absolute;
+    font-size: x-small;
+    top: 325px;
+    right: 50px;
+}
+.pwck_input_re_2{
+    color : red;
+    display : none;
+    position: absolute;
+    font-size: x-small;
+    top: 325px;
+    right: 50px;
+}
+
+/* 로그인 실패시 경고글 */
+.login_warn{
+    font-size: x-small;
+    text-align: center;
+    color : red;
+    position: absolute;
+    bottom: 128px;
 }

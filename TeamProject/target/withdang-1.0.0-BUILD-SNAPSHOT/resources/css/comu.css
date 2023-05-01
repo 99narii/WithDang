@@ -1,12 +1,58 @@
-/* 
-ul, li {
-    list-style: none;
-} */
+        /* 댓글 입력 폼 스타일 */
+        .comment-form {
+            margin: 0% 5% 2% 2%;
+        }
 
-/* a {
-    text-decoration: none;
-    color: inherit;
-} */
+        .comment-form input[type="text"],
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-form button {
+            padding: 10px 20px;
+            background-color: #ed8b9e;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* 댓글 리스트 스타일 */
+        .comment-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comment-list li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .comment-list li strong {
+            margin-right: 10px;
+        }
+
+        .comment-list li em {
+            color: #777;
+        }
+        
+        #nameInput {
+            border: none;
+            background-color: #ffffff00;
+        }
+
+
+
 :root {
     /* --text-color: #fff; */
     --background-color: #ed8b9e;
@@ -114,6 +160,15 @@ ul, li {
     display: flex;
   }
 
+  .main-title {
+    font-size: 44px;
+    font-weight: bolder;
+    color: #4b4b4b;
+    font-family: 'Gaegu', cursive !important;
+    margin: 18px;
+
+  }
+
 
 .board_wrap {
     width: 1000px;
@@ -127,6 +182,12 @@ ul, li {
 
 .board_title {
     margin-bottom: 30px auto;
+    font-size: 44px;
+    font-weight: bolder;
+    color: #4b4b4b;
+    font-family: 'Gaegu', cursive !important;
+    margin: 18px;
+
 }
 
 .board_title strong {

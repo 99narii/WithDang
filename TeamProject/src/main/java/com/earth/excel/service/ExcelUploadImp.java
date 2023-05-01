@@ -48,4 +48,9 @@ public class ExcelUploadImp implements ExcelUpload {
             mapper.insertPin(mapVo);
         }
     }
+
+    @Override
+    public void truncate() {
+        mapper.truncate();
+    }
 }

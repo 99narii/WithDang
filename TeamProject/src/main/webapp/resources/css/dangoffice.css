@@ -164,10 +164,13 @@ a {
 
 
 
+
 #imagediv {
-    background-image: url("image/select.png");
+    background-image: url("./image/idcard.png");
 }
 #imageinput {
+    background-image: url("./image/idcard.png");
+
 
 }
 
@@ -232,6 +235,11 @@ a {
     width: 480px;
     height: 100px;
     position: relative;
+}
+#견종 > span {
+    text-align: center;
+    align-items: center;
+    font-family: sans-serif;
 }
 
 .idcard-footer {
@@ -318,8 +326,3 @@ a {
     color: white;
     background-color: skyblue;
 } 
-/* #견종값 {
-    text-align: center;
-    align-items: center;
-    margin: 10px;
-} */
