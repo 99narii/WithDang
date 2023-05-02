@@ -3,18 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.earth.mapper.MapMapper">
-	<resultMap type="HashMap" id="mapPin">
-		<id column="name" property="name"/>
-		<id column="latitude" property="latitude"/>
-		<id column="longitude" property="longitude"/>
+<!--	<resultMap type="MapVo" id="mapPin">-->
+<!--		<id column="name" property="name"/>-->
+<!--		<id column="latitude" property="latitude"/>-->
+<!--		<id column="longitude" property="longitude"/>-->
 <!--		<id column="pintype" property="pintype"/>-->
-	</resultMap>
+<!--	</resultMap>-->
 		<insert id="insertPin" parameterType="MapVo">
 			insert into mapPin1 (name,latitude,longitude,pinType) values(#{name},#{latitude},#{longitude},#{type})
 		</insert>
 <!--	a1 불러오기-->
-	<select id="selectPin" parameterType="String" resultMap="mapPin">
-			select name,latitude,longitude
+	<select id="selectPin" parameterType="String" resultType="MapVo">
+			select name,latitude,longitude,pintype
 			from mapPin1
 			where pintype=${value}
 	</select>

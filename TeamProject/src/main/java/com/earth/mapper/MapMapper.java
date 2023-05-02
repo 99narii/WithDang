@@ -11,7 +11,7 @@ public interface MapMapper {
     public void insertPin(MapVo mapVo);
 
 
-    public List<HashMap<String,Object>> selectPin(String pinType);
+    public List<MapVo> selectPin(String pinType);
 
     public void truncate();
 
