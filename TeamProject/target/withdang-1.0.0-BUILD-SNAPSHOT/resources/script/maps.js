@@ -4,20 +4,19 @@ var options = {
     level: 3//확대 레벨
 };
 
-
-navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
-
+var positions = new Array();
 var map = new kakao.maps.Map(container, options);//지도 생성
+
 var mapTypeControl = new kakao.maps.MapTypeControl(); //컨트롤러 생성
 map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-var pin=null;
 var lati = null;
 var longi = null;
-//버튼 누르면 string 값 변경
-//ground,training,hospital,beauty,trail, kindergarten
+//ground,training,hospital,beauty,trail, kinder
+navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
+var pin=null;
 
 $(function () {
     $(".main-pin").on("")
@@ -27,7 +26,6 @@ $(function () {
     });
     $("#pin2").on("click", function () {
         pin = "training";
-        alert("test");
         callPin();
     });
     $("#pin3").on("click", function () {
@@ -40,121 +38,80 @@ $(function () {
     });
     $("#pin5").on("click", function () {
         pin = "trail";
-        callPin1();
+        callPin();
     });
     $("#pin6").on("click", function () {
         pin = "kinder";
-        callPin2();
+        callPin();
     });
 
 
 });
 
+
+
+const contextPath = "/" + window.location.pathname.split("/")[1] ;
+
 function callPin() {
+    var json = {"pin": pin, "latitude": lati, "longitude": longi};
     $.ajax({
-        url: `/dang/getMapPin`,
-        data:{
-            // pin: pin,
-            lati:lati, longi: longi
-        },
-        dataType: "json",//받는 데이터 타입
-        type:"post",
-        contentType: "text",  //보내는 데이터 타입
+        url: contextPath + '/getMapPin',
+        data: JSON.stringify(json),
+        // dataType: "json",//받는 데이터 타입
+        type: "post",
+        contentType: "application/json",  //보내는 데이터 타입
         success: function (data) {
             console.log(data);
-        },
-    })
+            for (var i = 0; i < markerArr.length; i++) {
+                markerArr[i].setMap(null);
+            }
+            for (var i = 0; i <data.length; i++) {
+                positions[i] = {
+                    title: data[i]["name"],
+                    latlng: new kakao.maps.LatLng(data[i]["latitude"], data[i]["longitude"])
+                };
+            }
+            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+            var imageSize = new kakao.maps.Size(24, 35);
+            var markerImage= new kakao.maps.MarkerImage(imageSrc, imageSize);
+            var infowindow=null;
+            var bounds = new kakao.maps.LatLngBounds();
+
+            for (var i = 0; i < positions.length; i++) {
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: positions[i].latlng,
+                    image: markerImage
+                });
+                bounds.extend(positions[i].latlng);
+                // markerArr = new Array();
+                markerArr[i] = marker;
+                infowindow = new kakao.maps.InfoWindow({
+                    content:positions[i].title//인포 윈도우에 표시될 내용
+                });
+                //마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만든다
+                //클로저 없으면 마지막 마커에만 표시 됨
+                (function (marker, infowindow) {
+                    kakao.maps.event.addListener(marker, 'click', function () {
+                        infowindow.close();
+                        infowindow.open(map, marker);
+                    });
+                    kakao.maps.event.addListener(map, 'click', function () {
+                        infowindow.close();
+                    });
+                })(marker, infowindow);
+            }
+            setBound();
+
+            function setBound() {
+                map.setBounds(bounds);
+            }
+
+        },//success end
+    });
 }
 
 var markerArr=new Array();
-function callPin1() {
-    for (var i = 0; i < markerArr.length; i++) {
-        markerArr[i].setMap(null);
-    }
-
-    var positions = [
-        {
-            title: '<div>서울역</div>',
-            latlng: new kakao.maps.LatLng(37.55, 126.97)
-        }, {
-            title: '<div>서울특별시청</div>',
-            latlng: new kakao.maps.LatLng(37.5668260, 126.86567)
-        }, {
-            title: '<div>을지로입구</div>',
-            latlng: new kakao.maps.LatLng(37.566, 126.9821930)
-        }
-    ];
-    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-    var imageSize = new kakao.maps.Size(24, 35);
-    var markerImage= new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-    var infowindow=null;
-    for (var i = 0; i < positions.length; i++) {
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: positions[i].latlng,
-            image: markerImage
-        });
-        // markerArr = new Array();
-        markerArr[i] = marker;
-        infowindow = new kakao.maps.InfoWindow({
-            content:positions[i].title//인포 윈도우에 표시될 내용
-        });
-        //마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만든다
-        //클로저 없으면 마지막 마커에만 표시 됨
-        (function (marker, infowindow) {
-            kakao.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
-            kakao.maps.event.addListener(map, 'click', function () {
-                infowindow.close();
-            });
-        })(marker, infowindow);
-    }
-    // marker.setMap(map);
-}
-
-function callPin2() {
-    for (var i = 0; i < markerArr.length; i++) {
-        markerArr[i].setMap(null);
-    }
-    var positions = [
-        {
-            title: '<div>서울역</div>',
-            latlng: new kakao.maps.LatLng(36.3398175,127.3940486)
-        }
-    ];
-    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-    var imageSize = new kakao.maps.Size(24, 35);
-    var markerImage= new kakao.maps.MarkerImage(imageSrc, imageSize);
-    var infowindow=null;
-    for (var i = 0; i < positions.length; i++) {
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: positions[i].latlng,
-            image: markerImage
-        });
-        // markerArr = new Array();
-        markerArr[i] = marker;
-        infowindow = new kakao.maps.InfoWindow({
-            content:positions[i].title//인포 윈도우에 표시될 내용
-        });
-        //마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만든다
-        //클로저 없으면 마지막 마커에만 표시 됨
-        (function (marker, infowindow) {
-            kakao.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
-            kakao.maps.event.addListener(map, 'click', function () {
-                infowindow.close();
-            });
-        })(marker, infowindow);
-    }
-    // marker.setMap(map);
-}
-
-
-
 
 
 function locationLoadSuccess(pos){

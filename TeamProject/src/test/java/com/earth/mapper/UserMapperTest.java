@@ -75,7 +75,7 @@ public class UserMapperTest {
 	@Test
 	public void mapTest() {
 		String pin = "ground";
-		Coordinate coor = new Coordinate(37.4939535,127.0172588);
+		Coordinate coor = new Coordinate(37.4939535,127.0172588,"asd");
 
 
 		List<MapVo> list = mapper.selectPin("'"+pin+"'");
