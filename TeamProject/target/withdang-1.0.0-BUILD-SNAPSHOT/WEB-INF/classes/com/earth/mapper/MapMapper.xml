@@ -21,6 +21,7 @@
 	<delete id="truncate">
 		truncate table mapPin1 restart identity;
 	</delete>
+
 </mapper>
 
 

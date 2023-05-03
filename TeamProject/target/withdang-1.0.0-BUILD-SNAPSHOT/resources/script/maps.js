@@ -61,7 +61,6 @@ function callPin() {
         type: "post",
         contentType: "application/json",  //보내는 데이터 타입
         success: function (data) {
-            console.log(data);
             for (var i = 0; i < markerArr.length; i++) {
                 markerArr[i].setMap(null);
             }
@@ -89,6 +88,13 @@ function callPin() {
                 infowindow = new kakao.maps.InfoWindow({
                     content:positions[i].title//인포 윈도우에 표시될 내용
                 });
+
+                // var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                //     iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+
+
+
+
                 //마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만든다
                 //클로저 없으면 마지막 마커에만 표시 됨
                 (function (marker, infowindow) {

@@ -62,7 +62,6 @@
                         <input type="radio" id="radio" name="user-pet" value="F">없음</div>
                     <div id="register-policy"><input type="checkbox" id="register-check" name="register-check" value="T">회원가입 약관에 동의합니다.</div>
                     <input type="button" class="join_btn" value="가입하기">
-                    
                 </form>
             </div>
         </div>

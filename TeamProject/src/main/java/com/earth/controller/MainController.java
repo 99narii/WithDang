@@ -21,6 +21,10 @@ public class MainController {
     public String dangoffice() {
         return "dangoffice";
     }
+@GetMapping("/mypage")
+    public String mypage() {
+        return "mypage";
+    }
 
 
 }

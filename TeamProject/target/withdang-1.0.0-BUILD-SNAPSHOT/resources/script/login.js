@@ -1,4 +1,5 @@
 
+const contextPath = "/" + window.location.pathname.split("/")[1] ;
 
 /* 유효성 검사 통과유무 변수 */
 var emailCheck = true;            // 이메일
@@ -68,7 +69,7 @@ $(document).ready(function () {
         /* 최종 유효성 검사 */
         if (emailCheck && emailckCheck && pwCheck && pwckCheck && pwckcorCheck && nameCheck && pwdCheckb) {
             alert("회원가입이 완료 되었습니다.")
-            $("#join_form").attr("action", "<c:url value="/join/"/>").submit();
+            $("#join_form").attr("action", contextPath+"/join/").submit();
         }else {
             //테스트용
             alert(emailCheck)
@@ -91,7 +92,7 @@ $('.input_email'). change(function(){
     var data = {user_email : user_email}				// '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)'
     $.ajax({
         type : "post",
-        url : "<c:url value="/emailCheck/"/>",
+        url : contextPath+"/emailCheck/",
         data : data,
         success : function(result){
             if(result != 'fail'){
@@ -133,7 +134,7 @@ $(document).ready(function(){
     /* 로그인 버튼 클릭 메서드 */
     $(".login_button").click(function(){
         /* 로그인 메서드 서버 요청 */
-        $("#login_form").attr("action", "<c:url value="/login/"/>").submit();
+        $("#login_form").attr("action", contextPath+"/login/").submit();
 
     });
 });
