@@ -1,3 +1,4 @@
+/*
 package com.earth.service;
 
 import com.earth.model.chat.ChatMessage;
@@ -46,3 +47,4 @@ public class ChatServiceimpl implements ChatService {
         return 0;
     }
 }
+*/

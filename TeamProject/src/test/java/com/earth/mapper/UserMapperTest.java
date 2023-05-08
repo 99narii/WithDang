@@ -1,6 +1,5 @@
 package com.earth.mapper;
 
-import com.earth.model.Coordinate;
 import com.earth.model.MapVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,34 +71,34 @@ public class UserMapperTest {
     }
 
 
-	@Test
-	public void mapTest() {
-		String pin = "ground";
-		Coordinate coor = new Coordinate(37.4939535,127.0172588,"asd");
-
-
-		List<MapVo> list = mapper.selectPin("'"+pin+"'");
-//string엔 0~48
-		double distance;
-		double radius=6371; //지구 반지름
-		double toRadian=Math.PI/180;
-		double clat = coor.getLatitude();
-		double clng = coor.getLongitude();
-		for (int i = 0; i <list.size() ; i++) {
-			double locationlat = list.get(i).getLatitude(); //db의 좌표
-			double locationlng = list.get(i).getLongitude(); //db좌표
-			double deltaLatitude = Math.abs(clat - locationlat) * toRadian;
-			double deltaLongitude = Math.abs(clng - locationlng) * toRadian;
-
-			double sinDeltaLat = Math.sin(deltaLatitude / 2);
-			double sinDeltaLng = Math.sin(deltaLongitude / 2);
-			double squareRoot = Math.sqrt(
-					sinDeltaLat * sinDeltaLng + Math.cos(clat * toRadian) * Math.cos(locationlat * toRadian) * sinDeltaLng * sinDeltaLng
-			);
-			distance = 2 * radius * Math.asin(squareRoot);
-			System.out.println(list.get(i).toString() +"          "+ distance);
-		}
-	}
+//	@Test
+//	public void mapTest() {
+//		String pin = "ground";
+////		MapVo coor = new MapVo(37.4939535,127.0172588,"asd");
+//
+//
+//		List<MapVo> list = mapper.selectPin("'"+pin+"'");
+////string엔 0~48
+//		double distance;
+//		double radius=6371; //지구 반지름
+//		double toRadian=Math.PI/180;
+////		double clat = coor.getLatitude();
+////		double clng = coor.getLongitude();
+//		for (int i = 0; i <list.size() ; i++) {
+//			double locationlat = list.get(i).getLatitude(); //db의 좌표
+//			double locationlng = list.get(i).getLongitude(); //db좌표
+//			double deltaLatitude = Math.abs(clat - locationlat) * toRadian;
+//			double deltaLongitude = Math.abs(clng - locationlng) * toRadian;
+//
+//			double sinDeltaLat = Math.sin(deltaLatitude / 2);
+//			double sinDeltaLng = Math.sin(deltaLongitude / 2);
+//			double squareRoot = Math.sqrt(
+//					sinDeltaLat * sinDeltaLng + Math.cos(clat * toRadian) * Math.cos(locationlat * toRadian) * sinDeltaLng * sinDeltaLng
+//			);
+//			distance = 2 * radius * Math.asin(squareRoot);
+//			System.out.println(list.get(i).toString() +"          "+ distance);
+//		}
+//	}
 
 
 }

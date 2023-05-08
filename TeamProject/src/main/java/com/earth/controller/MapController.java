@@ -1,7 +1,6 @@
 package com.earth.controller;
 
 import com.earth.mapper.MapMapper;
-import com.earth.model.Coordinate;
 import com.earth.model.MapVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,18 +16,18 @@ public class MapController {
 //js 에서 받은 형식에 따라 다른 list 반환?
     @ResponseBody
     @RequestMapping(value = "/getMapPin" ,method = RequestMethod.POST,consumes = "application/json")
-    public List<MapVo> mappinMapping(@RequestBody Coordinate coor) {
-        System.out.println(coor.getLatitude());
-        System.out.println(coor.getPin());
+    public List<MapVo> mappinMapping(@RequestBody MapVo mapVo) {
+        System.out.println(mapVo.getLatitude());
+        System.out.println(mapVo.getName());
 
 //근처만 불러오기위한 공식
-        List<MapVo> list = mapper.selectPin("'"+coor.getPin()+"'");
+        List<MapVo> list = mapper.selectPin("'"+mapVo.getName()+"'");
 //string엔 0~48
         double distance;
         double radius=6371; //지구 반지름
         double toRadian=Math.PI/180;
-        double clat = coor.getLatitude();
-        double clng = coor.getLongitude();
+        double clat = mapVo.getLatitude();
+        double clng = mapVo.getLongitude();
         List<MapVo> pinList=new ArrayList<>();
         for (int i = 0; i <list.size() ; i++) {
             double locationlat = list.get(i).getLatitude(); //db의 좌표
