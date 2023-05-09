@@ -17,11 +17,8 @@ public class MapController {
     @ResponseBody
     @RequestMapping(value = "/getMapPin" ,method = RequestMethod.POST,consumes = "application/json")
     public List<MapVo> mappinMapping(@RequestBody MapVo mapVo) {
-        System.out.println(mapVo.getLatitude());
-        System.out.println(mapVo.getName());
-
 //근처만 불러오기위한 공식
-        List<MapVo> list = mapper.selectPin("'"+mapVo.getName()+"'");
+        List<MapVo> list = mapper.selectPin("'"+mapVo.getType()+"'");
 //string엔 0~48
         double distance;
         double radius=6371; //지구 반지름

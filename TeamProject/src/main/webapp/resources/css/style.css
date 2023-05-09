@@ -246,6 +246,16 @@ a {
     font-family: 'Gaegu', cursive !important;
 
 }
+.info-title {
+    display: block;
+    background: #8bdbb7;
+    color: #fff;
+    text-align: center;
+    height: 48px;
+    line-height:22px;
+    border-radius:4px;
+    padding:0px 10px;
+}
 
 .main-about-img {
     width: 70% auto;
