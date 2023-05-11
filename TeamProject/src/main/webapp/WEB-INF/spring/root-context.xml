@@ -47,14 +47,14 @@
 <!--</websocket:handlers>-->
 <!--	<bean id="websocketHandler" class="net.oofbird.websocket.WebsocketEndPoint">-->
 <!--	</bean>-->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 			<property name="locations">
 				<list>
 					<value> classpath:dbProperties.properties</value>
 					<value> classpath:s3.properties</value>
 				</list>
 			</property>
-	</bean>
+	</bean> -->
 	<context:component-scan base-package="com.earth"></context:component-scan>
 
 </beans>

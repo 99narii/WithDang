@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -7,9 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dangguenwrite.css">
-    <script src="./script/dangguenwrite.js"></script>
-    <script src="./script/toggle.js" defer></script>
+    <link rel="stylesheet" href='${pageContext.request.contextPath}/resources/css/comu.css'>
+    <script src='${pageContext.request.contextPath}/resources/script/dangguenwrite.jsp' defer></script>
+    <script src='${pageContext.request.contextPath}/resources/script/toggle.js' defer></script>
     <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Gothic:wght@400;700;800&display=swap"
         rel="stylesheet">
@@ -28,17 +29,17 @@
         <nav class="navbar">
 
             <div class="navbar__logo">
-                <a href="main.jsp">with DANG</a>
+                <a href="main.html">with DANG</a>
             </div>
 
             <ul class="navbar__menu">
-                <li><a href="${pageContext.request.contextPath}/main">댕댕여지도</a></li>
-                <li><a href="${pageContext.request.contextPath}/dangguen">댕근마켓</a></li>
-                <li><a href="${pageContext.request.contextPath}/dangcare">댕댕케어</a></li>
-                <li><a href="${pageContext.request.contextPath}/dangcomu">댕댕커뮤</a></li>
-                <li><a href="${pageContext.request.contextPath}/dangoffice">댕사무소</a></li>
-                <li><button class="btnLogin"><a href="${pageContext.request.contextPath}/login">login</a></button></li>
-                <li><a href="${pageContext.request.contextPath}/mypage"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
+                <li><a href="main.html">댕댕여지도</a></li>
+                <li><a href="dangguen.html">댕근마켓</a></li>
+                <li><a href="dangcare.html">댕댕케어</a></li>
+                <li><a href="dangcomu.html">댕댕커뮤</a></li>
+                <li><a href="dangoffice.html">댕사무소</a></li>
+                <li><button class="btnLogin"><a href="login.html">login</a></button></li>
+                <li><a href="mypage.html"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
 
             </ul>
             <a href="#" class="navbar__toggleBtn">
@@ -66,97 +67,14 @@
                             <select class="form-select" aria-label="category">
                                 <optgroup label="카테고리">
                                     <option selected>카테고리</option>
-                                    <option value="1">사료/간식</option>
-                                    <option value="2">영양제</option>
-                                    <option value="3">산책 용품</option>
-                                    <option value="4">집/방석</option>
-                                    <option value="5">옷/악세사리</option>
-                                    <option value="6">위생 용품</option>
-                                    <option value="7">기타 용품</option>
+                                    <option value="1">반려소식</option>
+                                    <option value="2">반려일상</option>
+                                    <option value="3">반려질문</option>
+                                    <option value="4">펫과사전</option>
+                                    <option value="5">육아꿀팁</option>
+                                    <option value="6">기타</option>
                                 </optgroup>
-                            </select>
-                            <select class="form-select" aria-label="adress">
-                                <optgroup selected label="지역 설정">
-                                    <option selected disabled>지역 설정</option>
-                                    <option value="1">서울특별시</option>
-                                    <option value="2">경기도</option>
-                                    <option value="3">인천광역시</option>
-                                    <option value="4">부산광역시</option>
-                                    <option value="5">대구광역시</option>
-                                    <option value="6">광주광역시</option>
-                                    <option value="7">대전광역시</option>
-                                    <option value="8">울산광역시</option>
-                                    <option value="9">세종특별자치시</option>
-                                    <option value="10">제주도</option>
-                                    <option value="11">강원도</option>
-                                    <option value="12">충청북도</option>
-                                    <option value="13">충청남도</option>
-                                    <option value="14">전라북도</option>
-                                    <option value="15">전라남도</option>
-                                    <option value="16">경상북도</option>
-                                    <option value="17">경상남도</option>
-                                </optgroup>
-                            </select>
-                            <select class="form-select" aria-label="adress">
-                                <optgroup label="동네 설정">
-                                    <option value="0">전체보기</option>
-                                    <option value="1">중구</option>
-                                    <option value="2">용산구</option>
-                                    <option value="3">성동구</option>
-                                    <option value="4">광진구</option>
-                                    <option value="5">동대문구</option>
-                                    <option value="6">중랑구</option>
-                                    <option value="7">성북구</option>
-                                    <option value="8">강북구</option>
-                                    <option value="9">도봉구</option>
-                                    <option value="10">노원구</option>
-                                    <option value="11">은평구</option>
-                                    <option value="12">서대문구</option>
-                                    <option value="13">마포구</option>
-                                    <option value="14">양천구</option>
-                                    <option value="15">강서구</option>
-                                    <option value="16">구로구</option>
-                                    <option value="17">금천구</option>
-                                    <option value="18">영등포구</option>
-                                    <option value="19">동작구</option>
-                                    <option value="20">관악구</option>
-                                    <option value="21">서초구</option>
-                                    <option value="22">강남구</option>
-                                    <option value="23">송파구</option>
-                                    <option value="24">강동구</option>
-                                    <option value="24">종로구</option>
 
-
-                                </optgroup>
-                                <optgroup label="하위 그룹">
-
-                                </optgroup>
-                            </select>
-
-                            <select class="form-select" aria-label="adress">
-                                <optgroup label="동네 설정">
-                                    <option value="0">전체보기</option>
-                                    <option value="1">개포1동</option>
-                                    <option value="2">개포2동</option>
-                                    <option value="3">개포4동</option>
-                                    <option value="4">논현1동</option>
-                                    <option value="5">논현2동</option>
-                                    <option value="6">도곡1동</option>
-                                    <option value="7">도곡2동</option>
-                                    <option value="8">대치1동</option>
-                                    <option value="9">대치2동</option>
-                                    <option value="10">대치4동</option>
-                                    <option value="11">삼성1동</option>
-                                    <option value="12">삼성2동</option>
-                                    <option value="13">신사동</option>
-                                    <option value="14">압구정동</option>
-                                    <option value="15">역삼1동</option>
-                                    <option value="16">역삼2동</option>
-                                    <option value="17">청담동</option>
-                                </optgroup>
-                                <optgroup label="">
-
-                                </optgroup>
                             </select>
                             <div class="img-sec">
                                 <input id="imageinput" type="file" multiple="multiple" accept=".jpg, .jpeg, .png"
@@ -168,19 +86,14 @@
                     </div>
                     <div class="cont">
 
-                        <textarea placeholder="내용 입력">
-        내용이 들어갑니다
-        내용이 들어갑니다
-        내용이 들어갑니다
-        내용이 들어갑니다
-        내용이 들어갑니다
-                            
+                        <textarea> 
+   						     ${comuDTO.post_content}                    
                         </textarea>
                     </div>
             </div>
             <div class="bt_wrap">
                 <a href="view.html" class="on">완료</a>
-                <a href="view.html">취소</a>
+                <a href="${pageContext.request.contextPath}/dangcomu/list">취소</a>
             </div>
         </div>
 
