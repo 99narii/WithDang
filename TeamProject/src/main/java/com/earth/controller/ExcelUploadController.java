@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,28 +28,29 @@ public class ExcelUploadController {
 
     @ResponseBody
     @RequestMapping(value = "/excelUploadAjax.do", method = RequestMethod.POST)
-    public ModelAndView excelUploadAjax(MultipartFile file, MultipartHttpServletRequest request) {
+    public ModelAndView excelUploadAjax(MultipartHttpServletRequest request) {
         System.out.println("excelUpload");
         MultipartFile excelFile = request.getFile("excelFile");
+        System.out.println(excelFile);
         File destFile = new File("c:\\upload\\" + excelFile.getOriginalFilename());
         try {
             excelFile.transferTo(destFile);
         } catch (IOException e) {
+            destFile.delete();
             throw new RuntimeException(e);
         }
+        try {
+            excelUpload.insertDB(destFile);
+        } catch (NullPointerException e) {
+            destFile.delete();
+            throw new NullPointerException();
+        }
 
-        excelUpload.insertDB(destFile);
         destFile.delete();
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/upload");
+        System.out.println("uploaded");
         return mav;
-    }
-
-    @RequestMapping(value = "/truncate", method = RequestMethod.POST)
-    public String truncate() {
-        excelUpload.truncate();
-
-        return "redirect:/excel/upload";
     }
 
 

@@ -35,14 +35,19 @@ public class ExcelUploadImp implements ExcelUpload {
         List<MapVo> pinList = new ArrayList<>();
 
         for (Map<String, String> map : excelContent) {
-            MapVo pin = new MapVo();
-            //여기서 널에러
-            //excelContent가 비어있음
-            pin.setName(map.get("A").toString());
-            pin.setLatitude(Double.parseDouble(map.get("B")));
-            pin.setLongitude(Double.parseDouble(map.get("C")));
-            pin.setType(map.get("D"));
-            pinList.add(pin);
+            try {
+                MapVo pin = new MapVo();
+                pin.setName(map.get("A").toString());
+                pin.setLatitude(Double.parseDouble(map.get("B")));
+                pin.setLongitude(Double.parseDouble(map.get("C")));
+                pin.setType(map.get("D"));
+                pinList.add(pin);
+            } catch (NullPointerException e) {
+                continue;
+            } catch (NumberFormatException e) {
+                continue;
+            }
+
         }
         for (MapVo mapVo : pinList) {
             mapper.insertPin(mapVo);

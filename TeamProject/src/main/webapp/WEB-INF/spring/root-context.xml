@@ -49,5 +49,5 @@
 <!--	</bean>-->
 	<context:property-placeholder location="classpath*:dbProperties.properties"/>
 	<context:component-scan base-package="com.earth"></context:component-scan>
-
+	<context:property-placeholder location="classpath:s3.properties"/>
 </beans>

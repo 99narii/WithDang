@@ -17,16 +17,14 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <title>Document</title>
 </head>
 <body>
 .<form id="excelUploadForm" name="excelUploadForm" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/excel/excelUploadAjax.do">
     <input id="excelFile" type="file" name="excelFile"/>
-    <button type="button" id="addExcelImportBtn" class="btn" onclick="check()">업로드</button>
-</form>
-<form id="dbTruncate" name="dbTruncate" method="post" action="${pageContext.request.contextPath}/excel/truncate">
-    <button type="submit" id="truncate" class="btn">초기화</button>
+<%--    <button type="button" id="addExcelImportBtn" class="btn" onclick="check()">업로드</button>--%>
+    <input type="submit" value="send">
 </form>
 <script>
     function checkFileType(filePath) {

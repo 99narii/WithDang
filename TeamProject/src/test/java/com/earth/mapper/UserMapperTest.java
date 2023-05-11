@@ -24,8 +24,12 @@ public class UserMapperTest {
 	@Test
 	public void mappiin(){
 		String pin = "ground";
-		List<MapVo> list = mapper.selectPin("'"+pin+"'");
-		System.out.println(list.get(1).getLatitude());
+		MapVo mapVo = new MapVo("수진동 탄천 반려견 놀이공간",37.4369100968,	127.1196602121,pin);
+
+
+		mapper.insertPin(mapVo);
+//		List<MapVo> list = mapper.selectPin(pin);
+//		System.out.println(list.get(0).getLatitude());
 
 	}
 

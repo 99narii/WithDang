@@ -11,4 +11,10 @@ public class MapVo {
     private double longitude;
     private String type;
 
+    public MapVo(String name, double latitude, double longitude, String type) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.type = type;
+    }
 }

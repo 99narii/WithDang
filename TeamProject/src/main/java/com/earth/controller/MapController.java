@@ -18,7 +18,7 @@ public class MapController {
     @RequestMapping(value = "/getMapPin" ,method = RequestMethod.POST,consumes = "application/json")
     public List<MapVo> mappinMapping(@RequestBody MapVo mapVo) {
 //근처만 불러오기위한 공식
-        List<MapVo> list = mapper.selectPin("'"+mapVo.getType()+"'");
+        List<MapVo> list = mapper.selectPin(mapVo.getType());
 //string엔 0~48
         double distance;
         double radius=6371; //지구 반지름
@@ -38,10 +38,29 @@ public class MapController {
                     sinDeltaLat * sinDeltaLng + Math.cos(clat * toRadian) * Math.cos(locationlat * toRadian) * sinDeltaLng * sinDeltaLng
             );
             distance = 2 * radius * Math.asin(squareRoot);
-            if (distance < 10) {
-                pinList.add(list.get(i));
-                System.out.println(list.get(i));
+            if (mapVo.getType().equals("beauty")) {
+                if (distance < 5) {
+                    pinList.add(list.get(i));
+                    System.out.println(list.get(i));
+                }
+            } else if (mapVo.getType().equals("hospital")) {
+                if (distance < 5) {
+                    pinList.add(list.get(i));
+                    System.out.println(list.get(i));
+                }
+            } else if (mapVo.getType().equals("kinder")) {
+                if (distance < 5) {
+                    pinList.add(list.get(i));
+                    System.out.println(list.get(i));
+                }
+            }else {
+                if (distance < 10) {
+                    pinList.add(list.get(i));
+                    System.out.println(list.get(i));
+                }
             }
+
+
         }
         //ground,training,hospital,beauty,trail, kindergarten
         return pinList;

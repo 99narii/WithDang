@@ -10,17 +10,65 @@
 <!--		<id column="pintype" property="pintype"/>-->
 <!--	</resultMap>-->
 		<insert id="insertPin" parameterType="MapVo">
-			insert into mapPin1 (name,latitude,longitude,pinType) values(#{name},#{latitude},#{longitude},#{type})
+			<choose>
+				<when test='type=="ground"'>
+					insert into
+					    map_ground
+					    (latitude,longitude,pinType,name)
+					select #{latitude},#{longitude},#{type},#{name}
+					where not exists(
+						select * from
+						map_ground
+						where name=#{name} and latitude=#{latitude} and longitude=#{longitude})
+				</when>
+				<when test='type=="hospital"'>
+					insert into
+					map_hospital
+					(latitude,longitude,pinType,name)
+					select #{latitude},#{longitude},#{type},#{name}
+					where not exists(
+					select * from
+					map_hospital
+					where name=#{name} and latitude=#{latitude} and longitude=#{longitude})
+				</when>
+				<when test='type=="training"'>
+					insert into
+					map_training
+					(latitude,longitude,pinType,name)
+					select #{latitude},#{longitude},#{type},#{name}
+					where not exists(
+					select * from
+					map_training
+					where name=#{name} and latitude=#{latitude} and longitude=#{longitude})
+				</when>
+				<when test='type=="beauty"'>
+					insert into
+					map_beauty
+					(latitude,longitude,pinType,name)
+					select #{latitude},#{longitude},#{type},#{name}
+					where not exists(
+					select * from
+					map_beauty
+					where name=#{name} and latitude=#{latitude} and longitude=#{longitude})
+				</when>
+				<when test='type=="kinder"'>
+					insert into
+					map_kinder
+					(latitude,longitude,pinType,name)
+					select #{latitude},#{longitude},#{type},#{name}
+					where not exists(
+					select * from
+					map_kinder
+					where name=#{name} and latitude=#{latitude} and longitude=#{longitude})
+				</when>
+			</choose>
+
 		</insert>
 <!--	a1 불러오기-->
 	<select id="selectPin" parameterType="String" resultType="MapVo">
 			select name,latitude,longitude,pintype
-			from mapPin1
-			where pintype=${value}
+			from map_${value}
 	</select>
-	<delete id="truncate">
-		truncate table mapPin1 restart identity;
-	</delete>
 
 </mapper>
 

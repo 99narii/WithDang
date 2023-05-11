@@ -46,10 +46,10 @@
                 <li><a href="${pageContext.request.contextPath}/dangcomu">댕댕커뮤</a></li>
                 <li><a href="${pageContext.request.contextPath}/dangoffice">댕사무소</a></li>
                 <li><a href="${pageContext.request.contextPath}/mypage"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
-                <li><button class="btnLogin"><a href="<c:url value='${loginoutlink }' />">${loginout}</a></button></li>
                 <c:if test="${ user != null }">
-                <li><a href="${pageContext.request.contextPath}/mypage"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage"><i class="fa fa-user-o" id="btnMypage" aria-hidden="true"></i></a></li>
                 </c:if>
+                <li><button class="btnLogin"><a href="<c:url value='${loginoutlink }' />">${loginout}</a></button></li>
 
             </ul>
 
