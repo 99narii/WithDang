@@ -81,6 +81,13 @@ function callPin() {
         type: "post",
         contentType: "application/json",  //보내는 데이터 타입
         success: function (data) {
+            if (data.length == 0) {
+                alert("주변에 해당 시설이 없습니다")
+                return;
+            }
+
+
+
             //데이터 받아와서 꺼내기
             positions = new Array();
             for (var i = 0; i < data.length; i++) {

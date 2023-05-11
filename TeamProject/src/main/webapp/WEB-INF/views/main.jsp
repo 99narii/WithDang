@@ -84,9 +84,9 @@
                 <div class="main-pin">
                     <a href="#" id="pin4"><img src="${pageContext.request.contextPath}/resources/image/pin4.png" alt="핀4"></a>
                 </div>
-                <div class="main-pin">
-                    <a href="#" id="pin5"><img src="${pageContext.request.contextPath}/resources/image/pin5.png" alt="핀5"></a>
-                </div>
+<%--                <div class="main-pin">--%>
+<%--                    <a href="#" id="pin5"><img src="${pageContext.request.contextPath}/resources/image/pin5.png" alt="핀5"></a>--%>
+<%--                </div>--%>
                 <div class="main-pin">
                     <a href="#" id="pin6"><img src="${pageContext.request.contextPath}/resources/image/pin6.png" alt="핀6"></a>
                 </div>

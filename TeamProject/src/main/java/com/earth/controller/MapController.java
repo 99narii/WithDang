@@ -39,17 +39,17 @@ public class MapController {
             );
             distance = 2 * radius * Math.asin(squareRoot);
             if (mapVo.getType().equals("beauty")) {
-                if (distance < 5) {
+                if (distance < 1) {
                     pinList.add(list.get(i));
                     System.out.println(list.get(i));
                 }
             } else if (mapVo.getType().equals("hospital")) {
-                if (distance < 5) {
+                if (distance < 1) {
                     pinList.add(list.get(i));
                     System.out.println(list.get(i));
                 }
             } else if (mapVo.getType().equals("kinder")) {
-                if (distance < 5) {
+                if (distance < 3) {
                     pinList.add(list.get(i));
                     System.out.println(list.get(i));
                 }
@@ -65,5 +65,6 @@ public class MapController {
         //ground,training,hospital,beauty,trail, kindergarten
         return pinList;
 
+//        return list;
     }
 }
