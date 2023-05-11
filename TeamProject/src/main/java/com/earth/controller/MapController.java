@@ -13,18 +13,20 @@ import java.util.List;
 public class MapController {
     @Autowired
     MapMapper mapper;
-//js 에서 받은 형식에 따라 다른 list 반환?
+
     @ResponseBody
     @RequestMapping(value = "/getMapPin" ,method = RequestMethod.POST,consumes = "application/json")
     public List<MapVo> mappinMapping(@RequestBody MapVo mapVo) {
-//근처만 불러오기위한 공식
+//근처만 불러오기위한 하버사인 공식
         List<MapVo> list = mapper.selectPin(mapVo.getType());
-//string엔 0~48
+
         double distance;
         double radius=6371; //지구 반지름
         double toRadian=Math.PI/180;
+        //현재 위치
         double clat = mapVo.getLatitude();
         double clng = mapVo.getLongitude();
+        //근처 핀만 저장될 리스트
         List<MapVo> pinList=new ArrayList<>();
         for (int i = 0; i <list.size() ; i++) {
             double locationlat = list.get(i).getLatitude(); //db의 좌표
@@ -35,7 +37,7 @@ public class MapController {
             double sinDeltaLat = Math.sin(deltaLatitude / 2);
             double sinDeltaLng = Math.sin(deltaLongitude / 2);
             double squareRoot = Math.sqrt(
-                    sinDeltaLat * sinDeltaLng + Math.cos(clat * toRadian) * Math.cos(locationlat * toRadian) * sinDeltaLng * sinDeltaLng
+                    sinDeltaLat * sinDeltaLat + Math.cos(clat * toRadian) * Math.cos(locationlat * toRadian) * sinDeltaLng * sinDeltaLng
             );
             distance = 2 * radius * Math.asin(squareRoot);
             if (mapVo.getType().equals("beauty")) {

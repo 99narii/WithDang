@@ -13,6 +13,10 @@ var overlay = null;
 var lati = null;
 var type=null;
 var longi = null;
+var imageSrc = null;
+
+
+
 
 const contextPath = "/" + window.location.pathname.split("/")[1] ;
 
@@ -33,36 +37,42 @@ $(function () {
     $(".main-pin").on("")
     $("#pin1").on("click", function () {
         type = "ground";
+        imageSrc = document.getElementById("mappin1").src;
         hideWindow()
         hideMarker();
         callPin();
     });
     $("#pin2").on("click", function () {
         type = "training";
+        imageSrc = document.getElementById("mappin2").src;
         hideMarker();
         hideWindow()
         callPin();
     });
     $("#pin3").on("click", function () {
         type = "hospital";
+        imageSrc = document.getElementById("mappin3").src;
         hideMarker();
         hideWindow()
         callPin();
     });
     $("#pin4").on("click", function () {
         type = "beauty";
+        imageSrc = document.getElementById("mappin4").src;
+
         hideMarker();
         hideWindow()
         callPin();
     });
-    $("#pin5").on("click", function () {
-        type = "trail";
-        hideMarker();
-        hideWindow()
-        callPin();
-    });
+    // $("#pin5").on("click", function () {
+    //     type = "trail";
+    //     hideMarker();
+    //     hideWindow()
+    //     callPin();
+    // });
     $("#pin6").on("click", function () {
         type = "kinder";
+        imageSrc = document.getElementById("mappin6").src;
         hideMarker();
         hideWindow()
         callPin();
@@ -70,26 +80,21 @@ $(function () {
 });
 
 
-
-
 function callPin() {
     var json = {"name":"","type": type, "latitude": lati, "longitude": longi};
     $.ajax({
         url: contextPath + '/getMapPin',
         data: JSON.stringify(json),
-        // dataType: "json",//받는 데이터 타입
         type: "post",
-        contentType: "application/json",  //보내는 데이터 타입
+        contentType: "application/json",
         success: function (data) {
             if (data.length == 0) {
                 alert("주변에 해당 시설이 없습니다")
                 return;
             }
-
-
-
-            //데이터 받아와서 꺼내기
+            //이전 데이터 날리기
             positions = new Array();
+            //데이터 받아와서 꺼내기
             for (var i = 0; i < data.length; i++) {
                 coor[i] = data[i]["latitude"] + ',' + data[i]["longitude"];
                 positions[i] = {
@@ -99,19 +104,9 @@ function callPin() {
             }
             var roadviewClient = new kakao.maps.RoadviewClient();
             //마커 커스텀
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
             var imageSize = new kakao.maps.Size(24, 35);
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-            // for (let i = 0; i < positions.length; i++) {
-            //     var marker = new kakao.maps.Marker({
-            //         map: map,
-            //         position: positions[i].latlng,
-            //         title:positions[i].title,
-            //         image: markerImage
-            //     });
-            //
-            // var infowindow = null;
             var bounds = new kakao.maps.LatLngBounds();
 
             for (var i = 0; i < positions.length; i++) {

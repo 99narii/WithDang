@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <script src="${pageContext.request.contextPath}/resources/script/main.js" defer></script>
     <script src="${pageContext.request.contextPath}/resources/script/maps.js" defer></script>
-
+    <img id=mappin1 src="${pageContext.request.contextPath}/resources/image/mappin1.png" hidden/>
+    <img id=mappin2 src="${pageContext.request.contextPath}/resources/image/mappin2.png" hidden/>
+    <img id=mappin3 src="${pageContext.request.contextPath}/resources/image/mappin3.png" hidden/>
+    <img id=mappin4 src="${pageContext.request.contextPath}/resources/image/mappin4.png" hidden/>
+    <img id=mappin6 src="${pageContext.request.contextPath}/resources/image/mappin6.png" hidden/>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eb28aa20d7222d5529f51952b8be3c3&libraries=services&"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -84,6 +88,8 @@
                 <div class="main-pin">
                     <a href="#" id="pin4"><img src="${pageContext.request.contextPath}/resources/image/pin4.png" alt="핀4"></a>
                 </div>
+
+
 <%--                <div class="main-pin">--%>
 <%--                    <a href="#" id="pin5"><img src="${pageContext.request.contextPath}/resources/image/pin5.png" alt="핀5"></a>--%>
 <%--                </div>--%>

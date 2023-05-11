@@ -13,6 +13,10 @@ var overlay = null;
 var lati = null;
 var type=null;
 var longi = null;
+var imageSrc = null;
+
+
+
 
 const contextPath = "/" + window.location.pathname.split("/")[1] ;
 
@@ -33,43 +37,47 @@ $(function () {
     $(".main-pin").on("")
     $("#pin1").on("click", function () {
         type = "ground";
+        imageSrc = document.getElementById("mappin1").src;
         hideWindow()
         hideMarker();
         callPin();
     });
     $("#pin2").on("click", function () {
         type = "training";
+        imageSrc = document.getElementById("mappin2").src;
         hideMarker();
         hideWindow()
         callPin();
     });
     $("#pin3").on("click", function () {
         type = "hospital";
+        imageSrc = document.getElementById("mappin3").src;
         hideMarker();
         hideWindow()
         callPin();
     });
     $("#pin4").on("click", function () {
         type = "beauty";
+        imageSrc = document.getElementById("mappin4").src;
+
         hideMarker();
         hideWindow()
         callPin();
     });
-    $("#pin5").on("click", function () {
-        type = "trail";
-        hideMarker();
-        hideWindow()
-        callPin();
-    });
+    // $("#pin5").on("click", function () {
+    //     type = "trail";
+    //     hideMarker();
+    //     hideWindow()
+    //     callPin();
+    // });
     $("#pin6").on("click", function () {
         type = "kinder";
+        imageSrc = document.getElementById("mappin6").src;
         hideMarker();
         hideWindow()
         callPin();
     });
 });
-
-
 
 
 function callPin() {
@@ -99,7 +107,7 @@ function callPin() {
             }
             var roadviewClient = new kakao.maps.RoadviewClient();
             //마커 커스텀
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+            // var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
             var imageSize = new kakao.maps.Size(24, 35);
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 

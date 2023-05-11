@@ -22,6 +22,9 @@
 <typeAliases>
     <typeAlias type="com.earth.model.MapVo" alias="MapVo"/>
     <typeAlias type="com.earth.model.UserVo" alias="UserVo"/>
+    <typeAlias type="com.earth.model.ComuDTO" alias="ComuDTO"/>
+    <typeAlias type="com.earth.model.CommentDTO" alias="CommentDTO"/>
+    <typeAlias type="com.earth.model.SearchItem" alias="SearchItem"/>
 </typeAliases>
 
 <!-- environments : DB에 연결할 설정에 대한 정보 선언 -->
@@ -66,4 +69,3 @@
 <!--    <mapper resource="mappers/board-mapper.xml"/>-->
 <!--</mappers>-->
 </configuration>
-
