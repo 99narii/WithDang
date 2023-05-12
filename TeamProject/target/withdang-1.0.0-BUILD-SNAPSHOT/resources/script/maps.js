@@ -85,19 +85,16 @@ function callPin() {
     $.ajax({
         url: contextPath + '/getMapPin',
         data: JSON.stringify(json),
-        // dataType: "json",//받는 데이터 타입
         type: "post",
-        contentType: "application/json",  //보내는 데이터 타입
+        contentType: "application/json",
         success: function (data) {
             if (data.length == 0) {
                 alert("주변에 해당 시설이 없습니다")
                 return;
             }
-
-
-
-            //데이터 받아와서 꺼내기
+            //이전 데이터 날리기
             positions = new Array();
+            //데이터 받아와서 꺼내기
             for (var i = 0; i < data.length; i++) {
                 coor[i] = data[i]["latitude"] + ',' + data[i]["longitude"];
                 positions[i] = {
@@ -107,23 +104,15 @@ function callPin() {
             }
             var roadviewClient = new kakao.maps.RoadviewClient();
             //마커 커스텀
-            // var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
             var imageSize = new kakao.maps.Size(24, 35);
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-            // for (let i = 0; i < positions.length; i++) {
-            //     var marker = new kakao.maps.Marker({
-            //         map: map,
-            //         position: positions[i].latlng,
-            //         title:positions[i].title,
-            //         image: markerImage
-            //     });
-            //
-            // var infowindow = null;
             var bounds = new kakao.maps.LatLngBounds();
 
             for (var i = 0; i < positions.length; i++) {
-                var iwContent = '<div class="info-title">' + positions[i].title + '<br><a href="https://map.kakao.com/link/roadview/' + coor[i] + '" style="color:blue" target="_blank">로드뷰</a> <a href="https://map.kakao.com/link/to/' + positions[i].title + ',' + coor[i] + '" style="color:#db6e84; font-size: 1em; font-family: sans-serif;" target="_blank">길찾기</a></div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                var iwContent = '<div class="info-title">' + positions[i].title
+                    + '<br><a href="https://map.kakao.com/link/roadview/'
+                    + coor[i] + 'class="info-title-view" target="_blank"\n>로드뷰</a> <a href="https://map.kakao.com/link/to/' + positions[i].title + ',' + coor[i] +  '" class="info-title-info" target="_blank">길찾기</a></div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                 //마커 생성
                 var marker = new kakao.maps.Marker({
                     map: map,

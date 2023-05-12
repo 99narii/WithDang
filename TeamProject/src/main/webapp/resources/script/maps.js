@@ -110,7 +110,9 @@ function callPin() {
             var bounds = new kakao.maps.LatLngBounds();
 
             for (var i = 0; i < positions.length; i++) {
-                var iwContent = '<div class="info-title">' + positions[i].title + '<br><a href="https://map.kakao.com/link/roadview/' + coor[i] + '" style="color:blue" target="_blank">로드뷰</a> <a href="https://map.kakao.com/link/to/' + positions[i].title + ',' + coor[i] + '" style="color:#db6e84; font-size: 1em; font-family: sans-serif;" target="_blank">길찾기</a></div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                var iwContent = '<div class="info-title">' + positions[i].title
+                    + '<br><a href="https://map.kakao.com/link/roadview/'
+                    + coor[i] + 'class="info-title-view" target="_blank"\n>로드뷰</a> <a href="https://map.kakao.com/link/to/' + positions[i].title + ',' + coor[i] +  '" class="info-title-info" target="_blank">길찾기</a></div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                 //마커 생성
                 var marker = new kakao.maps.Marker({
                     map: map,

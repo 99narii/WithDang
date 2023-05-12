@@ -248,15 +248,31 @@ a {
 }
 .info-title {
     display: block;
-    background: #a1e1dc;
+    background: #A7AAD1;
     color: #fff;
     text-align: center;
     height: 48px;
     line-height:22px;
     border-radius:4px;
-    padding:0px 10px;
+    padding:3px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 3px solid #CBEFD1;
+
+
+}
+.info-title-info {
+    color: #FFC9D1;
+
+
 }
 
+.info-title-view {
+    color:#FBFEE5;
+
+
+
+}
 .main-about-img {
     width: 70% auto;
     position: relative;
@@ -264,7 +280,7 @@ a {
 }
 
 @media screen and (max-width: 786px) {
-    
+
     .main-map {
         flex-direction: column;
     }
