@@ -22,7 +22,7 @@ public interface ComuMapper {
 	
 	List<ComuDTO> searchSelectPage(SearchItem sc) throws Exception;
 	
-	String selectUserName(Integer user_id) throws Exception;
+	String selectUserName(Integer user_email) throws Exception;
 	
 	int insert(ComuDTO comuDTO) throws Exception;
    

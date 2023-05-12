@@ -89,11 +89,11 @@ public class ComuController {
 	public String delete(Integer post_id, Integer page, Integer pageSize, 
 			RedirectAttributes ra, HttpSession session) {
 		
-		String user_id = (String) session.getAttribute("user");
+		String user_email = (String) session.getAttribute("user");
 		ra.addFlashAttribute("msg", "DEL_OK");
 		
 		try {
-			if(comuService.deletePost(post_id, user_id) != 1) 
+			if(comuService.deletePost(post_id, user_email) != 1) 
 				throw new Exception("Delete Fail");
 				
 		} catch (Exception e) {

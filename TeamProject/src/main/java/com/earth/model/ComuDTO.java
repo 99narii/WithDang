@@ -15,7 +15,7 @@ public class ComuDTO {
 	private Date post_created_time;
 	private int post_view_count;
 	private String post_status;
-	private int user_id;
+	private int user_email;
 	private String user_name;
 	
 }

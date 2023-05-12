@@ -27,10 +27,10 @@ public class ComuServiceImpl implements ComuService{
 	}
 
 	@Override
-	public int deletePost(Integer post_id, String user_id) throws Exception {
+	public int deletePost(Integer post_id, String user_email) throws Exception {
 		Map map = new HashMap();
 		map.put("post_id", post_id);
-		map.put("user_id", user_id);
+		map.put("user_email", user_email);
 		
 		return comuMapper.delete(map);
 	}
@@ -57,7 +57,7 @@ public class ComuServiceImpl implements ComuService{
 		List<ComuDTO> comuDTOs = comuMapper.searchSelectPage(sc);
 		
 		for (ComuDTO c : comuDTOs) {
-			String user_name = comuMapper.selectUserName(c.getUser_id());
+			String user_name = comuMapper.selectUserName(c.getUser_email());
 			c.setUser_name(user_name);
 		}
 		
@@ -70,10 +70,10 @@ public class ComuServiceImpl implements ComuService{
 	}
 
 	@Override
-	public int deleteComment(Integer cmt_id, String user_id) throws Exception {
+	public int deleteComment(Integer cmt_id, String user_email) throws Exception {
 		Map map = new HashMap();
 		map.put("cmt_id", cmt_id);
-		map.put("user_id", user_id);
+		map.put("user_email", user_email);
 		
 		return comuMapper.deleteComment(map);
 	}

@@ -5,7 +5,7 @@
   <mapper namespace="com.earth.mapper.ComuMapper">
   
   		<sql id="selectFromPost">
-  			SELECT post_id, post_title, post_content, post_ctgr_id, post_update_time, post_created_time, user_id, post_view_count
+  			SELECT post_id, post_title, post_content, post_ctgr_id, post_update_time, post_created_time, user_email, post_view_count
 			FROM tb_post
   		</sql>
   		
@@ -43,7 +43,7 @@
   		<select id="selectUserName" parameterType="int" resultType="String">
   			select user_name
   			from tb_user
-  			where user_id = #{user_id}
+  			where user_email = #{user_email}
   		</select>
   		
   		<sql id="searchCondition">
@@ -74,7 +74,7 @@
   		
   		<delete id="delete" parameterType="map">
   			DELETE FROM tb_post
-			where post_id = #{post_id} and user_id = #{user_id}
+			where post_id = #{post_id} and user_email = #{user_email}
   		</delete>
   		
   		<delete id="deleteForAdmin" parameterType="int">
@@ -88,7 +88,7 @@
   		<update id="update" parameterType="ComuDTO">
   			UPDATE public.tb_post
 			SET post_title = #{post_title}, post_content = #{post_content}, post_ctgr_id = #{post_ctgr_id}, post_update_time = now()
-			WHERE post_id = #{post_id} and user_id = #{user_id}
+			WHERE post_id = #{post_id} and user_email = #{user_email}
   		</update>
   		
   		<update id="increaseViewCnt" parameterType="int">
@@ -106,7 +106,7 @@
   		
   		<delete id="deleteComment" parameterType="map">
   			DELETE FROM tb_comment
-  			WHERE cmt_id = #{cmt_id} and user_id = #{user_id)
+  			WHERE cmt_id = #{cmt_id} and user_email = #{user_email)
   		</delete>
   		
   		<delete id="deleteCommentForAdmin" parameterType="int">
