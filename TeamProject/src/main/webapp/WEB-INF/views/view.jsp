@@ -28,7 +28,7 @@
         integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-	<!-- SweetAlert JS -->
+	<!-- SweetAlert JS! -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
     <title>댕댕커뮤</title>
 </head>
