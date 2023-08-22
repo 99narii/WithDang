@@ -12,24 +12,24 @@
 
 	<!-- Application Loggers -->
 	<logger name="com.earth.withdang">
-		<level value="info" />
+		<level value="ERROR" />
 	</logger>
 
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="info" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.springframework.beans">
-		<level value="info" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.springframework.context">
-		<level value="info" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.springframework.web">
-		<level value="info" />
+		<level value="ERROR" />
 	</logger>
 <!--	<logger name="jdbc.sqlonly" additivity="false">-->
 <!--		<level value="info"/>-->
@@ -38,7 +38,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="ERROR" />
 		<appender-ref ref="console" />
 	</root>
 <!--	<logger name="com.zaxxer.hikari.HikariConfig">-->

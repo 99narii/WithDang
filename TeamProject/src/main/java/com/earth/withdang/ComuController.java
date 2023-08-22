@@ -283,6 +283,10 @@ public class ComuController {
 	// 로그인 체크
 	public boolean loginCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
-		return session.getAttribute("member") != null;
+		try {
+			return session.getAttribute("member") != null;
+		} catch (NullPointerException e) {
+			return false;
+		}
 	}
 }
